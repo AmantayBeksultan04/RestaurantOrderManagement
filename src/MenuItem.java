@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class MenuItem {
     private int id;
     private String name;
@@ -9,32 +11,26 @@ public class MenuItem {
         this.price = price;
     }
 
-    public int getId() {
-        return id;
+    public int getId() { return id; }
+    public String getName() { return name; }
+    public double getPrice() { return price; }
+
+    @Override
+    public String toString() {
+        return "MenuItem{id=" + id + ", name='" + name + "', price=" + price + "}";
     }
 
-    public void setId(int id) {
-        this.id = id;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MenuItem)) return false;
+        MenuItem menuItem = (MenuItem) o;
+        return id == menuItem.id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void displayItem() {
-        System.out.println("MenuItem ID: " + id + ", Name: " + name + ", Price: $" + price);
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
 

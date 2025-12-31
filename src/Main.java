@@ -1,29 +1,36 @@
 public class Main {
     public static void main(String[] args) {
 
-        Restaurant restaurant = new Restaurant("Freddy Fazzbear Pizzeria", "Los Angeles");
-        restaurant.displayRestaurant();
-        System.out.println();
+        Restaurant restaurant = new Restaurant("Food Paradise");
 
-        MenuItem item1 = new MenuItem(1, "Burger", 5.99);
-        MenuItem item2 = new MenuItem(2, "Pizza", 8.49);
+        MenuItem burger = new MenuItem(1, "Burger", 5.99);
+        MenuItem pizza = new MenuItem(2, "Pizza", 8.49);
 
-        item1.displayItem();
-        item2.displayItem();
-        System.out.println();
+        restaurant.addMenuItem(burger);
+        restaurant.addMenuItem(pizza);
 
-        Order order1 = new Order(101, item1, 2);
-        Order order2 = new Order(102, item2, 1);
+        Customer john = new Customer("John");
+        Customer anna = new Customer("Anna");
 
-        order1.displayOrder();
-        System.out.println();
-        order2.displayOrder();
-        System.out.println();
+        Order o1 = new Order(101, burger, 2, john);
+        Order o2 = new Order(102, pizza, 1, anna);
+        Order o3 = new Order(103, pizza, 3, john);
 
-        if (order1.calculateTotal() > order2.calculateTotal()) {
-            System.out.println("Order 1 is more expensive than Order 2");
-        } else {
-            System.out.println("Order 2 is more expensive than Order 1");
+        restaurant.addOrder(o1);
+        restaurant.addOrder(o2);
+        restaurant.addOrder(o3);
+
+        System.out.println("🔹 All Orders:");
+        restaurant.displayOrders();
+
+        System.out.println("\n🔹 Orders above $10:");
+        for (Order o : restaurant.filterOrdersByMinPrice(10)) {
+            System.out.println(o);
         }
+
+        System.out.println("\n🔹 Orders sorted by price:");
+        restaurant.sortOrdersByPrice();
+        restaurant.displayOrders();
     }
 }
+

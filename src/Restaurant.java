@@ -1,32 +1,54 @@
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 public class Restaurant {
     private String name;
-    private String location;
+    private List<MenuItem> menu = new ArrayList<>();
+    private List<Order> orders = new ArrayList<>();
 
-
-    public Restaurant(String name, String location) {
-        this.name = name;
-        this.location = location;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Restaurant(String name) {
         this.name = name;
     }
 
-    public String getLocation() {
-        return location;
+    public void addMenuItem(MenuItem item) {
+        menu.add(item);
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void addOrder(Order order) {
+        orders.add(order);
     }
 
-    public void displayRestaurant() {
-        System.out.println("Restaurant Name: " + name);
-        System.out.println("Location: " + location);
+    // SEARCH
+    public MenuItem findMenuItemByName(String name) {
+        for (MenuItem item : menu) {
+            if (item.getName().equalsIgnoreCase(name)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    // FILTER
+    public List<Order> filterOrdersByMinPrice(double minPrice) {
+        List<Order> result = new ArrayList<>();
+        for (Order order : orders) {
+            if (order.getTotalPrice() >= minPrice) {
+                result.add(order);
+            }
+        }
+        return result;
+    }
+
+    // SORT
+    public void sortOrdersByPrice() {
+        orders.sort(Comparator.comparingDouble(Order::getTotalPrice));
+    }
+
+    public void displayOrders() {
+        for (Order order : orders) {
+            System.out.println(order);
+        }
     }
 }
 

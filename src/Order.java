@@ -1,46 +1,46 @@
+import java.util.Objects;
+
 public class Order {
     private int orderId;
-    private MenuItem menuItem;
+    private MenuItem item;
     private int quantity;
+    private Customer customer;
 
-    public Order(int orderId, MenuItem menuItem, int quantity) {
+    public Order(int orderId, MenuItem item, int quantity, Customer customer) {
         this.orderId = orderId;
-        this.menuItem = menuItem;
+        this.item = item;
         this.quantity = quantity;
+        this.customer = customer;
+    }
+
+    public double getTotalPrice() {
+        return item.getPrice() * quantity;
     }
 
     public int getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    @Override
+    public String toString() {
+        return "Order{id=" + orderId +
+                ", item=" + item.getName() +
+                ", quantity=" + quantity +
+                ", total=" + getTotalPrice() +
+                ", customer=" + customer.getName() + "}";
     }
 
-    public MenuItem getMenuItem() {
-        return menuItem;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Order)) return false;
+        Order order = (Order) o;
+        return orderId == order.orderId;
     }
 
-    public void setMenuItem(MenuItem menuItem) {
-        this.menuItem = menuItem;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public double calculateTotal() {
-        return menuItem.getPrice() * quantity;
-    }
-
-    public void displayOrder() {
-        System.out.println("Order ID: " + orderId);
-        menuItem.displayItem();
-        System.out.println("Quantity: " + quantity);
-        System.out.println("Total Price: $" + calculateTotal());
+    @Override
+    public int hashCode() {
+        return Objects.hash(orderId);
     }
 }
+
