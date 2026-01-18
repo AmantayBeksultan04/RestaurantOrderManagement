@@ -13,7 +13,7 @@ public class Main {
         dao.updatePrice(1, 6.49);
         dao.deleteMenuItem(2);
 
-        
+
         Restaurant restaurant = new Restaurant("Freddy Fazbear Pizza Place");
 
         MenuItem burger = new MenuItem(1, "Burger", 5.99);
