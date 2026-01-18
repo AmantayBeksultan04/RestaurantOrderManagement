@@ -43,7 +43,7 @@ public class MenuItemDAO {
         }
     }
 
-    
+
     public void deleteMenuItem(int id) throws SQLException {
         String sql = "DELETE FROM menu_item WHERE id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
