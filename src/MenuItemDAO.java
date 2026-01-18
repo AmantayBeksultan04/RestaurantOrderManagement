@@ -2,7 +2,7 @@ import java.sql.*;
 
 public class MenuItemDAO {
 
-    //Create
+
     public void addMenuItem(String name, double price) throws SQLException {
         String sql = "INSERT INTO menu_item (name, price) VALUES (?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -14,7 +14,7 @@ public class MenuItemDAO {
         }
     }
 
-    //Read
+
     public void getMenuItems() throws SQLException {
         String sql = "SELECT * FROM menu_item";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -31,7 +31,7 @@ public class MenuItemDAO {
         }
     }
 
-    //Update
+
     public void updatePrice(int id, double price) throws SQLException {
         String sql = "UPDATE menu_item SET price = ? WHERE id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -43,7 +43,7 @@ public class MenuItemDAO {
         }
     }
 
-    //Delete
+    
     public void deleteMenuItem(int id) throws SQLException {
         String sql = "DELETE FROM menu_item WHERE id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
