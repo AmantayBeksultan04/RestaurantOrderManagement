@@ -18,7 +18,7 @@ public class Main {
         // =========================
         // ASSIGNMENT 2: OOP DEMO
         // =========================
-        Restaurant restaurant = new Restaurant("Food Paradise");
+        Restaurant restaurant = new Restaurant("Freddy Fazbear Pizza Place");
 
         MenuItem burger = new MenuItem(1, "Burger", 5.99);
         MenuItem pizza = new MenuItem(2, "Pizza", 8.49);
