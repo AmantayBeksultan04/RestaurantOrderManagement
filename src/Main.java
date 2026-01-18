@@ -1,9 +1,7 @@
 public class Main {
     public static void main(String[] args) throws Exception {
 
-        // =========================
-        // ASSIGNMENT 3: DATABASE DEMO
-        // =========================
+
         MenuItemDAO dao = new MenuItemDAO();
 
         dao.addMenuItem("Burger", 5.99);
@@ -15,9 +13,7 @@ public class Main {
         dao.updatePrice(1, 6.49);
         dao.deleteMenuItem(2);
 
-        // =========================
-        // ASSIGNMENT 2: OOP DEMO
-        // =========================
+        
         Restaurant restaurant = new Restaurant("Freddy Fazbear Pizza Place");
 
         MenuItem burger = new MenuItem(1, "Burger", 5.99);
