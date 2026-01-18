@@ -1,18 +1,24 @@
 public class Main {
     public static void main(String[] args) throws Exception {
+
+        // =========================
+        // ASSIGNMENT 3: DATABASE DEMO
+        // =========================
         MenuItemDAO dao = new MenuItemDAO();
 
         dao.addMenuItem("Burger", 5.99);
         dao.addMenuItem("Pizza", 8.49);
 
+        System.out.println("Menu items from database:");
         dao.getMenuItems();
 
         dao.updatePrice(1, 6.49);
         dao.deleteMenuItem(2);
-    }
-    {
 
-        Restaurant restaurant = new Restaurant("Freddy Fazbear Pizza Place");
+        // =========================
+        // ASSIGNMENT 2: OOP DEMO
+        // =========================
+        Restaurant restaurant = new Restaurant("Food Paradise");
 
         MenuItem burger = new MenuItem(1, "Burger", 5.99);
         MenuItem pizza = new MenuItem(2, "Pizza", 8.49);
@@ -31,7 +37,7 @@ public class Main {
         restaurant.addOrder(o2);
         restaurant.addOrder(o3);
 
-        System.out.println("All orders:");
+        System.out.println("\nAll orders:");
         restaurant.displayOrders();
 
         System.out.println("\nOrders above $10:");
@@ -44,3 +50,4 @@ public class Main {
         restaurant.displayOrders();
     }
 }
+
