@@ -1,7 +1,18 @@
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        MenuItemDAO dao = new MenuItemDAO();
 
-        Restaurant restaurant = new Restaurant("Food Paradise");
+        dao.addMenuItem("Burger", 5.99);
+        dao.addMenuItem("Pizza", 8.49);
+
+        dao.getMenuItems();
+
+        dao.updatePrice(1, 6.49);
+        dao.deleteMenuItem(2);
+    }
+    {
+
+        Restaurant restaurant = new Restaurant("Freddy Fazbear Pizza Place");
 
         MenuItem burger = new MenuItem(1, "Burger", 5.99);
         MenuItem pizza = new MenuItem(2, "Pizza", 8.49);
@@ -20,17 +31,16 @@ public class Main {
         restaurant.addOrder(o2);
         restaurant.addOrder(o3);
 
-        System.out.println("🔹 All Orders:");
+        System.out.println("All orders:");
         restaurant.displayOrders();
 
-        System.out.println("\n🔹 Orders above $10:");
+        System.out.println("\nOrders above $10:");
         for (Order o : restaurant.filterOrdersByMinPrice(10)) {
             System.out.println(o);
         }
 
-        System.out.println("\n🔹 Orders sorted by price:");
+        System.out.println("\nOrders sorted by price:");
         restaurant.sortOrdersByPrice();
         restaurant.displayOrders();
     }
 }
-

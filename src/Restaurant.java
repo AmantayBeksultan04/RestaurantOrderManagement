@@ -19,7 +19,6 @@ public class Restaurant {
         orders.add(order);
     }
 
-    // SEARCH
     public MenuItem findMenuItemByName(String name) {
         for (MenuItem item : menu) {
             if (item.getName().equalsIgnoreCase(name)) {
@@ -29,7 +28,6 @@ public class Restaurant {
         return null;
     }
 
-    // FILTER
     public List<Order> filterOrdersByMinPrice(double minPrice) {
         List<Order> result = new ArrayList<>();
         for (Order order : orders) {
@@ -40,7 +38,6 @@ public class Restaurant {
         return result;
     }
 
-    // SORT
     public void sortOrdersByPrice() {
         orders.sort(Comparator.comparingDouble(Order::getTotalPrice));
     }
@@ -51,4 +48,3 @@ public class Restaurant {
         }
     }
 }
-
